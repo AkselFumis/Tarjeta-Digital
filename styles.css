@@ -135,7 +135,7 @@ footer {
 
 .mensaje-contenido button {
     padding: 10px 20px;
-    background: #dad1b3;
+    background: #d8c3bf;
     border: none;
     color: white;
     cursor: pointer;
@@ -143,7 +143,7 @@ footer {
 }
 
 .mensaje-contenido button:hover {
-    background: #d2c18a;
+    background: #efd1cb;
 }
 
 
@@ -161,7 +161,7 @@ footer {
     width: 50%;
     height: 50%;
     /* Puedes ajustar el tamaño según necesites */
-    background-color: #dad1b3;
+    background-color: #d8c3bf;
     /* Fondo rosa */
     display: flex;
     justify-content: center;
