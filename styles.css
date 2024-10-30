@@ -217,7 +217,7 @@ footer {
     padding: 20px;
     padding-bottom: 50px;
     border-radius: 10px;
-    background-color: #dad1b3d9;
+    background-color: #d8c3bf;
     flex-wrap: wrap;
     height: auto;
     min-height: 175vh;
@@ -240,7 +240,7 @@ footer {
     border-radius: 82px 82px 82px 82px;
     -webkit-border-radius: 82px 82px 82px 82px;
     -moz-border-radius: 82px 82px 82px 82px;
-    border: 5px solid #ffffff;
+    color: white;
     padding: 15px;
 }
 
@@ -267,28 +267,43 @@ footer {
     flex-wrap: wrap;
 }
 
+.itinerario hr {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    background-color: white;
+    border: 1px solid #ffffff;
+}
+
+.encabezado-itinerario {
+    font-size: 1.5em;
+    color: white;
+    padding-top: 40px;
+    text-align: center;
+    width: 80%;
+}
+
 .evento {
-    background-color: #dad1b3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
     border-radius: 10px;
     margin: 20px;
     text-align: center;
     cursor: pointer;
-    border: 3px solid white;
     width: 80%;
     transition: all 1s;
+    height: auto;
     /* Color del borde */
-}
-
-.evento:hover {
-    background-color: white;
-    color: #dad1b3;
 }
 
 .hora {
     font-size: 1.5em;
     margin: 0;
-    color: #d2c18a;
+    color: #ecd5d1;
 }
 
 .titulo,
@@ -299,9 +314,63 @@ footer {
     text-decoration: underline;
 }
 
-.evento:hover .hora,
-.evento:hover .titulo {
-    color: #d2c18a;
+.button-icon {
+    display: flex;
+    border: 3px #fff solid;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.icon {
+    background-color: #fff;
+    padding: 10px 10px 5px 10px;
+}
+
+#events .icon svg {
+    width: 25px;
+    height: 25px;
+    margin: 0;
+}
+
+.cube {
+    transition: all 0.4s;
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 20px;
+}
+
+.button-icon:hover {
+    border-color: #d3b6b0;
+}
+
+.button-icon:hover .cube {
+    transform: rotateX(90deg);
+}
+
+.side {
+    position: absolute;
+    height: 47px;
+    width: 200px;
+    display: flex;
+    font-size: 0.8em;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.top {
+    background: #d3b6b0;
+    color: #fff;
+    transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
+}
+
+.front {
+    background: #222229;
+    color: #fff;
+    transform: translate3d(0, 0, 1em);
 }
 
 /* Estilos para el modal */
@@ -394,7 +463,7 @@ footer {
 .info-item {
     width: 30%;
     background-color: white;
-    border: 3px solid #dad1b3;
+    border: 3px solid #d8c3bf;
     border-radius: 10px;
     padding: 20px;
     margin: 10px 0;
@@ -408,7 +477,7 @@ footer {
 }
 
 .info-item .contenido h3 {
-    color: #d2c18a;
+    color: #efd1cb;
     margin-top: 10px;
     font-size: 2rem;
 }
@@ -420,7 +489,7 @@ footer {
 
 .info-item button {
     padding: 10px 20px;
-    background: #dad1b3;
+    background: #d8c3bf;
     border: none;
     color: white;
     cursor: pointer;
@@ -429,7 +498,7 @@ footer {
 }
 
 .info-item button:hover {
-    background: #d2c18a;
+    background: #efd1cb;
 }
 
 #modal-body {
@@ -450,7 +519,7 @@ footer {
 
 #modal-body h3 {
     text-align: center;
-    color: #d2c18a;
+    color: #efd1cb;
     font-size: 2em;
     margin: 10px 0;
 }
@@ -465,7 +534,7 @@ footer {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background: #d2c18a;
+    background: #efd1cb;
     border: none;
     color: white;
     cursor: pointer;
@@ -474,7 +543,7 @@ footer {
 }
 
 #modal-body button:hover {
-    background: #ceb562;
+    background: #ffd5cd;
 }
 
 #confirmacion {
@@ -486,7 +555,7 @@ footer {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #dad1b3;
+    background-color: #d8c3bf;
     height: auto;
 }
 
@@ -528,7 +597,7 @@ footer {
 .form-heading {
     text-align: center;
     margin: 2em;
-    color: #dad1b3;
+    color: #d8c3bf;
     font-size: 1.2em;
     background-color: transparent;
     align-self: center;
@@ -546,7 +615,7 @@ footer {
     border: none;
     outline: none;
     color: #171717;
-    background-color: #dad1b3;
+    background-color: #d8c3bf;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
     flex-direction: column;
     /* Asegurar que los campos adicionales se dispongan en columnas */
@@ -557,7 +626,7 @@ select {
 }
 
 option {
-    background-color: #dad1b3;
+    background-color: #d8c3bf;
     color: white;
 }
 
@@ -584,28 +653,28 @@ option {
     border: none;
     outline: none;
     background-color: transparent;
-    color: #dad1b3;
+    color: #d8c3bf;
     font-weight: bold;
-    outline: 1px solid #dad1b3;
+    outline: 1px solid #d8c3bf;
     transition: all ease-in-out 0.3s;
 }
 
 .sendMessage-btn:hover {
     transition: all ease-in-out 0.3s;
-    background-color: #dad1b3;
+    background-color: #d8c3bf;
     color: #000;
     cursor: pointer;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
 
 .form-card1 {
-    background-image: linear-gradient(163deg, #e4d08c 0%, #e4d08c 100%);
+    background-image: linear-gradient(163deg, #efd1cb 0%, #efd1cb 100%);
     border-radius: 22px;
     transition: all 0.3s;
 }
 
 .form-card1:hover {
-    box-shadow: 0px 0px 30px 1px rgba(239, 202, 38, 0.3);
+    box-shadow: 0px 0px 30px 1px rgba(222, 181, 158, 0.74);
 }
 
 .form-card2 {
@@ -619,8 +688,20 @@ option {
 }
 
 @media (max-width: 768px) {
-    .mensaje-bienvenida{
+    .mensaje-bienvenida {
         width: 100%;
+    }
+
+    .texto-itinerario {
+        width: 80%;
+    }
+
+    .itinerario {
+        width: 90%;
+    }
+
+    .info-item {
+        width: 90%;
     }
 }
 
@@ -630,10 +711,12 @@ option {
     header .contador div {
         min-width: 40px;
     }
-    header .contador .numero{
+
+    header .contador .numero {
         font-size: 1.5rem;
     }
-    header .contador .unidad{
+
+    header .contador .unidad {
         font-size: 0.8rem;
     }
 
@@ -641,22 +724,12 @@ option {
         margin-top: 20px;
         width: 90%;
     }
-    
+
     .frase-about p {
         font-size: 1.3rem;
     }
-    
+
     .frase-about span {
         font-size: 1rem;
-    }
-
-    .texto-itinerario{
-        width: 80%;
-    }
-    .itinerario {
-        width: 90%;
-    }
-    .info-item {
-        width: 90%;
     }
 }
