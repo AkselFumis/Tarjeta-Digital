@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contador regresivo
     const cuentaAtras = () => {
-        const fechaObjetivo = new Date("August 10, 2025 00:00:00").getTime();
+        const fechaObjetivo = new Date("March 22, 2025 00:00:00").getTime();
         const ahora = new Date().getTime();
         const diferencia = fechaObjetivo - ahora;
 
@@ -42,13 +42,12 @@ function mostrarMapa(evento) {
     const mapa = document.getElementById('mapa');
     const modalContent = mapaModal.querySelector('.modal-content');
     let ubicacion;
-
     if (evento === 'ceremonia') {
-        ubicacion = 'https://www.google.com/maps/embed?pb=...'; // URL de Google Maps para la ceremonia
+        ubicacion = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.168100869742!2d-60.284841024818235!3d-29.888256575002607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x944bbec2f1eef30d%3A0xbb29e22b2692a105!2sParroquia%20San%20Luis%20Gonzaga!5e0!3m2!1ses!2sar!4v1730309802581!5m2!1ses!2sar'; // URL de Google Maps para la ceremonia
     } else if (evento === 'recepcion') {
-        ubicacion = 'https://www.google.com/maps/embed?pb=...'; // URL de Google Maps para la recepción
+        ubicacion = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.5674057479982!2d-60.289838599999996!3d-29.905563100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x944bbeba49af0f1d%3A0xe4d1798bc278b7c4!2sHotel%20Regional%20Calchaqui-santa%20Fe!5e0!3m2!1ses!2sar!4v1730309968373!5m2!1ses!2sar'; // URL de Google Maps para la recepción
     } else if (evento === 'fiesta') {
-        ubicacion = 'https://www.google.com/maps/embed?pb=...'; // URL de Google Maps para la fiesta
+        ubicacion = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.5674057479982!2d-60.289838599999996!3d-29.905563100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x944bbeba49af0f1d%3A0xe4d1798bc278b7c4!2sHotel%20Regional%20Calchaqui-santa%20Fe!5e0!3m2!1ses!2sar!4v1730309968373!5m2!1ses!2sar'; // URL de Google Maps para la fiesta
     }
 
     mapa.src = ubicacion;
@@ -94,7 +93,7 @@ function mostrarDatos(tipo) {
             </div>
             <h3>Flor & Emma</h3>
             <p>Alias: bodafloryemma</p>
-            <button>Valor $60.000</button>
+            <button>Valor $40.000</button>
         `;
     } else if (tipo === 'mesaRegalos') {
         contenido = `
@@ -110,10 +109,22 @@ function mostrarDatos(tipo) {
     } else if (tipo === 'hospedajes') {
         contenido = `
             <div class="icono-modal">
-                <img src="ruta/a/tu/icono-hospedaje.png" alt="Icono hospedaje">
+                <svg fill="#000000" width="800px" height="800px" viewBox="0 -32 576 576"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z" />
+                    </svg>
             </div>
             <h3>Hospedajes</h3>
-            <p>Contactos de hospedajes en la zona: ...</p>
+            <p>Contactos de hospedajes en la zona</p>
+            <p>Hotel Regional</p>
+            <p>3482 31-3351</p>
+            <hr>
+            <p>Alquiler Temporario Calchaqui</p>
+            <p>3483 41-6876</p>
+            <hr>
+            <p>Hotel Colón</p>
+            <p>3483 45-8825</p>
         `;
     }
 
@@ -159,6 +170,31 @@ document.addEventListener('DOMContentLoaded', () => {
     checkVisibility(); // Llamar para verificar la visibilidad al cargar la página
 });
 
+
+document.getElementById('confirmacion-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const lista = document.getElementById('lista').value;
+    let mensaje;
+    
+    if (lista === '0') {
+        mensaje = `No Podré Asistir:%0A%0ANombre: ${nombre}%0AApellido: ${apellido}`;
+    } else {
+        mensaje = `Confirmación de Asistencia:%0A%0ANombre: ${nombre}%0AApellido: ${apellido}%0A`;
+        
+        for (let i = 1; i < lista; i++) {
+            const nombreAdicional = document.getElementById(`nombre${i}`).value;
+            const apellidoAdicional = document.getElementById(`apellido${i}`).value;
+            mensaje += `%0ANombre : ${nombreAdicional}%0AApellido : ${apellidoAdicional}%0A`;
+        }
+    }
+
+    const url = `https://wa.me/5493462683810?text=${mensaje}`; // Reemplaza 1234567890 con tu número de teléfono
+    window.open(url, '_blank');
+});
+
 function actualizarCampos() {
     const lista = document.getElementById('lista');
     const camposAdicionales = document.getElementById('campos-adicionales');
@@ -167,14 +203,14 @@ function actualizarCampos() {
     // Limpia los campos adicionales
     camposAdicionales.innerHTML = '';
     
-    // Si la opción es "No podré asistir", solo muestra los campos de nombre y apellido
-    if (cantidad === 0) {
+    // Genera los campos adicionales dependiendo de la selección
+    for (let i = 1; i < cantidad; i++) {
         const divNombre = document.createElement('div');
         divNombre.className = 'form-field';
         const inputNombre = document.createElement('input');
         inputNombre.type = 'text';
-        inputNombre.id = `nombre`;
-        inputNombre.name = `nombre`;
+        inputNombre.id = `nombre${i}`;
+        inputNombre.name = `nombre${i}`;
         inputNombre.placeholder = `Nombre`;
         inputNombre.className = 'input-field';
         inputNombre.required = true;
@@ -183,8 +219,8 @@ function actualizarCampos() {
         divApellido.className = 'form-field';
         const inputApellido = document.createElement('input');
         inputApellido.type = 'text';
-        inputApellido.id = `apellido`;
-        inputApellido.name = `apellido`;
+        inputApellido.id = `apellido${i}`;
+        inputApellido.name = `apellido${i}`;
         inputApellido.placeholder = `Apellido`;
         inputApellido.className = 'input-field';
         inputApellido.required = true;
@@ -194,36 +230,10 @@ function actualizarCampos() {
         
         camposAdicionales.appendChild(divNombre);
         camposAdicionales.appendChild(divApellido);
-    } else {
-        // Genera los campos adicionales dependiendo de la selección
-        for (let i = 1; i <= cantidad; i++) {
-            const divNombre = document.createElement('div');
-            divNombre.className = 'form-field';
-            const inputNombre = document.createElement('input');
-            inputNombre.type = 'text';
-            inputNombre.id = `nombre${i}`;
-            inputNombre.name = `nombre${i}`;
-            inputNombre.placeholder = `Nombre`;
-            inputNombre.className = 'input-field';
-            inputNombre.required = true;
-
-            const divApellido = document.createElement('div');
-            divApellido.className = 'form-field';
-            const inputApellido = document.createElement('input');
-            inputApellido.type = 'text';
-            inputApellido.id = `apellido${i}`;
-            inputApellido.name = `apellido${i}`;
-            inputApellido.placeholder = `Apellido`;
-            inputApellido.className = 'input-field';
-            inputApellido.required = true;
-
-            divNombre.appendChild(inputNombre);
-            divApellido.appendChild(inputApellido);
-            
-            camposAdicionales.appendChild(divNombre);
-            camposAdicionales.appendChild(divApellido);
-        }
     }
 }
+
+
+
 
 
