@@ -172,6 +172,18 @@ document.addEventListener('DOMContentLoaded', () => {
     checkVisibility(); // Llamar para verificar la visibilidad al cargar la página
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const lista = document.getElementById('lista');
+    const cantidadMenores = document.getElementById('cantidad-menores');
+
+    // Ocultar "Cantidad de menores" si la opción seleccionada es "No podré asistir"
+    if (lista.value === '0' || lista.value === '1') {
+        cantidadMenores.style.display = 'none';
+    }
+
+    lista.addEventListener('change', actualizarCampos);
+});
+
 
 document.getElementById('confirmacion-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -179,6 +191,7 @@ document.getElementById('confirmacion-form').addEventListener('submit', function
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
     const lista = document.getElementById('lista').value;
+    const menores = document.getElementById('menores').value;
     let mensaje;
     
     if (lista === '0') {
@@ -193,18 +206,42 @@ document.getElementById('confirmacion-form').addEventListener('submit', function
         }
     }
 
-    const url = `https://wa.me/5493462683810?text=${mensaje}`; // Reemplaza 1234567890 con tu número de teléfono
+    mensaje += `%0ACantidad de menor/es: ${menores === '0' ? 'Ninguno' : menores}`
+
+    const url = `https://wa.me/5493483419580?text=${mensaje}`; // Reemplaza 1234567890 con tu número de teléfono
     window.open(url, '_blank');
 });
 
 function actualizarCampos() {
     const lista = document.getElementById('lista');
     const camposAdicionales = document.getElementById('campos-adicionales');
+    const cantidadMenores = document.getElementById('cantidad-menores');
     const cantidad = parseInt(lista.value);
     
     // Limpia los campos adicionales
     camposAdicionales.innerHTML = '';
+
+    // Muestra/Oculta el campo de cantidad de menores
+    if (cantidad === 0 || cantidad === 1) {
+        cantidadMenores.style.display = 'none';
+    } else {
+        cantidadMenores.style.display = 'block';
+    }
     
+    // Ajusta las opciones de menores según la cantidad seleccionada
+    const menoresSelect = document.getElementById('menores');
+    menoresSelect.innerHTML = ''; // Limpia las opciones anteriores
+    menoresSelect.insertAdjacentHTML('beforeend', '<option value="0">Ninguno</option>');
+    if (cantidad >= 2) {
+        menoresSelect.insertAdjacentHTML('beforeend', '<option value="1">1 Menor</option>');
+    }
+    if (cantidad >= 3) {
+        menoresSelect.insertAdjacentHTML('beforeend', '<option value="2">2 Menores</option>');
+    }
+    if (cantidad >= 4) {
+        menoresSelect.insertAdjacentHTML('beforeend', '<option value="3">3 Menores</option>');
+    }
+
     // Genera los campos adicionales dependiendo de la selección
     for (let i = 1; i < cantidad; i++) {
         const divNombre = document.createElement('div');

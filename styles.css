@@ -583,6 +583,15 @@ footer {
     color: #f7f7f7;
 }
 
+.confirmacion-content h3 {
+    text-align: center;
+    margin: 0.5em;
+    color: #d8c3bf;
+    font-size: 1.2em;
+    background-color: transparent;
+    align-self: center;
+}
+
 
 #confirmacion-form {
     display: flex;
