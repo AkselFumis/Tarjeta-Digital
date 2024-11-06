@@ -96,8 +96,6 @@ function mostrarDatos(tipo) {
             <p>Menores de 10 años (que comen y se sientan solos)  50% del valor de la tarjeta.</p>
             <p>INCLUYE BEBIDA TODA LA NOCHE.</p>
             <button>Alias: FYL.MAR.2025</button>
-            <p> o </p>
-            <button>Alias: luciquiros</button>
         `;
     } else if (tipo === 'mesaRegalos') {
         contenido = `
@@ -107,7 +105,7 @@ function mostrarDatos(tipo) {
                 </svg>
             </div>
             <h3>Luci & Facu</h3>
-            <p>Alias: FYL.MAR.2025</p>
+            <p>Alias: luciquiros</p>
             <button>¡Gracias</button>
         `;
     } else if (tipo === 'hospedajes') {
