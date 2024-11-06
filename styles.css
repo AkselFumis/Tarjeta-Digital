@@ -19,6 +19,7 @@ header {
     align-items: center;
     color: white;
     text-align: center;
+    filter: brightness(1.5);
 }
 
 header .overlay {
