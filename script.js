@@ -272,7 +272,46 @@ function actualizarCampos() {
     }
 }
 
+let currentIndex = 2; // Start with the first original item showing the first three images
+const items = document.querySelectorAll('.carousel-item');
+const totalItems = items.length;
 
+function showSlide(index) {
+    if (index >= totalItems - 2) {
+        currentIndex = 2;
+        document.querySelector('.carousel-inner').style.transition = 'none'; // Disable transition temporarily
+        const offset = -currentIndex * 33.33; // Movemos el carrusel para mostrar tres imágenes
+        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        setTimeout(() => {
+            document.querySelector('.carousel-inner').style.transition = 'transform 0.5s ease'; // Re-enable transition
+            showSlide(currentIndex + 1);
+        }, 50);
+    } else if (index < 2) {
+        currentIndex = totalItems - 5;
+        document.querySelector('.carousel-inner').style.transition = 'none'; // Disable transition temporarily
+        const offset = -currentIndex * 33.33; // Movemos el carrusel para mostrar tres imágenes
+        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        setTimeout(() => {
+            document.querySelector('.carousel-inner').style.transition = 'transform 0.5s ease'; // Re-enable transition
+            showSlide(currentIndex - 1);
+        }, 50);
+    } else {
+        currentIndex = index;
+        const offset = -currentIndex * 33.33; // Movemos el carrusel para mostrar tres imágenes
+        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    }
+}
 
+function nextSlide() {
+    showSlide(currentIndex + 1);
+}
 
+function prevSlide() {
+    showSlide(currentIndex - 1);
+}
 
+// Optionally, you can add auto-slide functionality
+setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+// Set initial position
+document.querySelector('.carousel-inner').style.transform = `translateX(-66.66%)`; // Muestra las primeras tres imágenes (1, 2 y 3)
